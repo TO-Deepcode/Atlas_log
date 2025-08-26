@@ -72,3 +72,7 @@ def performance(days: int = 30, x_atlas_key: str = Header(None)):
     net_r = sum(rrs)
     con.close()
     return {"count": n, "hit_rate": hit_rate, "avg_rr": avg_rr, "net_r": net_r}
+
+@app.get("/")
+def root():
+    return {"msg": "Atlas Log API çalışıyor. Endpointler: /v1/plan, /v1/execution, /v1/performance"}
