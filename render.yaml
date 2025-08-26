@@ -1,0 +1,11 @@
+# Render deploy ayarları
+services:
+  - type: web
+    name: atlas-log-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
+    autoDeploy: true
+    envVars:
+      - key: ATLAS_KEY
+        value: change-me
